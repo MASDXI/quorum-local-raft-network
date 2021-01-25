@@ -63,12 +63,17 @@ sample command in geth console
   transactionsRoot: "0xc90...215",
   uncles: []
 }
-# send ethereum
+# send ethereum in wei
 > eth.sendTransaction({from: eth.accounts[0],to: "0x7aa4a14286a25e3a275d7a122c23dc3c107a636a", value: "1000000000000000"})
 "0x182bd52c8184ccc9a177c2f0346d5407c6e828649cae8dd5e941029ade81291d"
-
+# get Balance in ether
 > eth.getBalance("0x7aa4a14286a25e3a275d7a122c23dc3c107a636a")
 1000000000000000
+# get Balance in ether
+> web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+999999999.998
+# example send in ether
+> eth.sendTransaction({from: eth.accounts[0],to: "0x7aa...36a", value: web3.fromWei(1000, "ether")})
 
 ```
 
